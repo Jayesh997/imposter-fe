@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+// In your routes configuration file
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import Lobby from './pages/Lobby';
+import Game from './pages/Game';
+import ResultPage from './pages/ResultPage';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/lobby/:lobbyId" element={<Lobby />} />
+                <Route path="/game/:lobbyId" element={<Game />} />
+                <Route path="/result" element={<ResultPage/>} />
+                {/* Other routes */}
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;
