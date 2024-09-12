@@ -12,8 +12,7 @@ export const SocketProvider = ({ children }) => {
 
     useEffect(() => {
         const newSocket = io('https://imposter-be.vercel.app',{
-            transports: ['websocket'], // Prefer WebSocket over polling
-            withCredentials: true
+            transports: ['websocket', 'polling'] // Prefer WebSocket over polling
         });
         setSocket(newSocket);
 
